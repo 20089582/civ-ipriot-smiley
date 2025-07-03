@@ -106,123 +106,137 @@ python3 main.py
 
  Answer each of the following questions **as they relate to that code** supplied by in this repository (ignore `sense_hat.py`):
 
-1. Examine the code for the `smiley.py` file and provide  an example of a variable of each of the following types and their corresponding values (`_` should be replaced with the appropriate values):
+**1.** Examine the code for the `smiley.py` file and provide  an example of a variable of each of the following types and their corresponding values (`_` should be replaced with the appropriate values):
 
-   | Type                    | name       | value          |
-   | ----------              | ---------- | -------------- |
-   | built-in primitive type | _          |  _             |
-   | built-in composite type | _          |  _             |
-   | user-defined type       | _          |  _             |
+      | Type                                    | name       | value          |
+      | ----------                             | ---------- | -------------- |
+      | built-in primitive type         | dimmed           |  True             |
+      | built-in composite type      | BLANK              | (0,0,0)             |
+      | user-defined type               | sense_hat           |  SenseHat()            |
 
-2. Fill in (`_`) the following table based on the code in `smiley.py`:
+**2.** Fill in (`_`) the following table based on the code in `smiley.py`:
 
-   | Object                   | Type                    |
-   | ------------             | ----------------------- |
-   | self.pixels              | _                       |
-   | A member of self.pixels  | _                       |
-   | self                     | _                       |
+      | Object                                 | Type                    |
+      | ------------                          | ----------------------- |
+      | self.pixels                            | List                       |
+      | A member of self.pixels      | tuple                             |
+      | self                                      | happy.Happy                      |
 
-3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
+**3.** Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
-   | Control Flow | File       | First line  | Line range  |
-   | ------------ | ---------- | ----------- | ----------- |
-   |  sequence    |  _         | _           | _           |
-   |  selection   | _          | _           | _           |
-   |  iteration   | _          | _           | _           |
+      | Control Flow | File       | First line  | Line range  |
+      | ------------ | ---------- | ----------- | ----------- |
+      |  sequence    |  smiley.py       | line: 13  "Y=self.YELLOW"        | 13 lines total ending line 25  "]" |
+      |  selection     | happy.py        |  |            |
+      |  iteration      | sad.py          | line: 15   "mouth = [49, 54, 42, 43, 44, 45]"  | 3 lines total ending line 17|
 
-4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
+**4.** Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
-   | Type                    | Used? | Example |
-   | ----------------------- | ----- | --------|
-   | int                     | _     | _          |
-   | float                   | _     | _          |
-   | str                     | _     | _          |
-   | bool                    | _     | _          |
+      | Type                    | Used? | Example |
+      | ----------------------- | ----- | --------|
+      | int                     | yes     | inside sad.py there is an interger list called "eyes" every number inside that list is its own intiger witch is a full number with no decimal points   code: eyes = [10, 13, 18, 21]      example: a = 1     |
+      | float                   | yes     | inside happy.py the variable "delay" is set to 0.25 witch makes it a  float          |
+      | str                     | no    | an example of a str or string might be: "hello world "          |
+      | bool                    | yes     | inside smiley.py the variable "dimmed" is a bool beacase its a true or false value       |
 
-5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
+**5.** Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
+            
+      "WHITE = (255, 255, 255)" is a good example of a class variable witch are variables witch are tied to a class so i could call "Smiley.WHITE" and get the variable 
 
-> Your answer here
->
 
-6. Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
+**6.** Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
+
    1. What is the purpose of a constructor (in general) and this one (in particular)?
 
-   > Your answer here
-   >
-
+      a constructor is a special method that is called automatically when an object is created from a class an example of this might be __str__ or __init__
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
 
-   > Your answer here
-   >
+            1. super().__init__() 
+                  calls the parent Smiley constructor which initializes the SenseHat object and creates the basic yellow smiley pixel array
+            2. self.draw_mouth()
+                  draws the happy mouth pattern by setting specific pixels to blank
+            3. self.draw_eyes() 
+                  draws the eyes in their default open state
 
 ### Code style
 
-1. What code style is used in the code? Is it likely to be the same as the code style used in the SenseHat? Give to reasons as to why/why not:
+**1.** What code style is used in the code? Is it likely to be the same as the code style used in the SenseHat? Give to reasons as to why/why not:
    
-> Your answer here
->
+      pep(python enhancement proposal) 8 serves as a industry standard style guide for python standard libary 
+      [PEP 8 Style Guide for Python Code | peps.python.org](https://peps.python.org/pep-0008/)
 
-2. List three aspects of this convention you see applied in the code.
+**2.** List three aspects of this convention you see applied in the code.
 
-> Your answer here
->
+      1. 4 spaces for each indentation is applied for every indentation in the happy.py file
+      2. again in happy.py we see imports are on diffrent lines as is the correct way to do so in pep8
+      3. operators are not aligned in the code when assigning variables as is correct within pep8
 
-3. Give two examples of organizational documentation in the code.
+**3.** Give two examples of organizational documentation in the code.
+      
+      1. docstrings are used to explain the purpose and parameters of functions such as "draw_eyes()" and "draw_eyes()"
+      2. file-level comments are used in the main.py and SenseHat.py
 
-> Your answer here
->
 
 ### Identifying and understanding classes
 
 > Note: Ignore the `sense_hat.py` file when answering the questions below
 
-1. List all the classes you identified in the project. Indicate which classes are base classes and which are subclasses. For subclasses, identify all direct base classes.
-  
+**1.** List all the classes you identified in the project. Indicate which classes are base classes and which are subclasses. For subclasses, identify all direct base classes.
+
   Use the following table for your answers:
 
-| Class Name | Super or Sub? | Direct parent(s) |
-| ---------- | ------------- | ---------------- |
-| NotReal    | Sub           | NotRealParent    |
-|   ...      |   ...         |      ...         |
+      | Class Name | Super or Sub? | Direct parent(s) |
+      | ---------- | ------------- | ---------------- |
+      | smiley     | Super         | none             |
+      | blinkable  | super         | abc              |
+      | sad        | sub           | smiley           |
+      | happy      | sub           | smiley,blinkable |
 
-2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
+**2.** Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
+      
+      Abstraction is the concept of hiding complex implementation details while exposing only essential features and functionality to users who interact with an object or method.
 
-> Your answer here
->
+**3.** What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
-3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
-
-> Your answer here
+     The project uses inheritance to reuse and extend code. For instance the `Sad` and `Happy` classes inherit from the `Smiley` base class and `Happy` also inherits from the `Blinkable` interface class This means they get the Smiley’s base classes methods and features without duplicating the code inside child classes
 >
 
 ### Compare and contrast classes
 
 Compare and contrast the classes Happy and Sad.
 
-1. What is the key difference between the two classes?
-   > Your answer here
-   >
-2. What are the key similarities?
-   > Your answer here
-   >
-3. What difference stands out the most to you and why?
-   > Your answer here
-   >
-4. How does this difference affect the functionality of these classes
-   > Your answer here
-   >
+**1.** What is the key difference between the two classes?
+
+      one class creates a sad face and the other creates a happy face
+   
+**2.** What are the key similarities?
+      
+      both classes inherit from and make use of the smiley class. the happy and sad classes also share the same function names with similiar implementations of `draw_mouth()` and `draw_eyes()`
+
+**3.** What difference stands out the most to you and why?
+
+      the happy smiley imports time it stands out to me as importing time allows the smiley to have a number of capabilitys it would not otherwise have
+
+**4.** How does this difference affect the functionality of these classes
+      
+      by importing time in the happy class it is able to create the blink function and it specificaly allows the blink function to use `time.delay()` witch delays between functions being executed
+      
+   
 
 ### Where is the Sense(Hat) in the code?
 
-1. Which class(es) utilize the functionality of the SenseHat?
-   > Your answer here
-   >
-2. Which of these classes directly interact with the SenseHat functionalities?
-   > Your answer here
-   >
-3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > Your answer here
-   >
+**1.** Which class(es) utilize the functionality of the SenseHat?
+      
+      while only the Smiley class interacts with SenseHat directly the Happy and Sad classes both utilize its functionalities without directly importing it
+
+**2.** Which of these classes directly interact with the SenseHat functionalities?
+      
+      Smiley
+    
+**3.** Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
+
+      Encapsulation refers to protecting the internal state from the application. a good example of this would be 
+      In the smiley project, the smiley class acts as the super class that directly interacts with the internal sense hat state while classes witch inherit from the smiley class are able to use certain functions such as `smiley.dim_display()`, `smiley.show()` this allows them to display things to the screen or dim it without directly interacting with the sense hat this protects it from commands or misuses witch may damage the sense hat
 
 ### Sad Smileys Can’t Blink (Or Can They?)
 
@@ -230,37 +244,57 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 **Understanding Blink Mechanism:**
 
-1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
+**1.** Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> Your answer here
->
+      no by making a separate abstract base class Blinkable the author makes blinking optional Only smileys that inherit from Blinkable are made to supply a blink implementation
 
-2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-> Your answer here
->
+**2.** For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
+      all blinkable smileys must expose a method called `blink()` so the interface is fixed but the abstract method behind it supplies no behaviour meaning each subclass can implement blink in a completely different way but it isnt nessasary to use blinkable 
 
-> Your answer here
->
 
-4. How is inheritance used in the blink method, and why is it important for polymorphism?
+**3.** Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
 
-> Your answer here
->
-1. **Implement Blink in Sad Class:**
+      Polymorphism is a principle that lets different objects respond in diffrent ways to the same method call for `blink()` we can swamp the happy class for the sad class interchangably when calling the `blink()` method beacase they share a common interface
+
+
+**4.** How is inheritance used in the blink method, and why is it important for polymorphism?
+
+      Blinkable is an abstract base class that declares `blink()`.
+      Each subclass such as sad and happy must implement that method so the client code can call `blink()` on any Blinkable object without caring which subclass it is this interchangeable behavior is polymorphism.
+      
+
+
+
+
+
+
+
+
+
+
+**1.** **Implement Blink in Sad Class:**
 
    - Create a new method called `blink` within the Sad class. Ensure you use the same method signature as in the Happy class:
 
    ```python
-   def blink(self, delay=0.25):
-       pass  # Replace 'pass' with your implementation
+    def blink(self, delay=0.25):
+        """
+        Blinks the smiley's eyes once
+        
+        :param delay: Delay between blinks (in seconds)
+        """
+        self.draw_eyes(wide_open=False)
+        self.show()
+        time.sleep(delay)
+        self.draw_eyes()
+        self.show()
    ```
 
-2. **Code Implementation:** Implement the code that allows the Sad smiley to blink. Use the implementation from the Happy Smiley as a reference. Ensure your new method functions similarly by controlling the blink duration through the `delay` argument.
+**2.** **Code Implementation:** Implement the code that allows the Sad smiley to blink. Use the implementation from the Happy Smiley as a reference. Ensure your new method functions similarly by controlling the blink duration through the `delay` argument.
 
-3. **Testing the Implementation:**
+**3.** **Testing the Implementation:**
 
 - Test the new blink functionality on your Raspberry Pi or within the Python classes provided. You might need to adjust the `main.py` script to incorporate Sad Smiley's new blinking capability.
 
@@ -268,72 +302,80 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
 ![Sad Smiley Blinking](screenshots/sad_blinking.png)
 
-- Observe and document the Sad smiley as it blinks its eyes. Describe any adjustments or issues encountered during implementation.
+**-** Observe and document the Sad smiley as it blinks its eyes. Describe any adjustments or issues encountered during implementation.
 
-  > Your answer here
+      i had to change the main.py from importing happy from happy to importing sad from sad and started using the sad() function i took the blink command from the happy class and put it into the sad class this nessesitated importing Time into the sad class to allow the time.delay function to work 
 
   ### If It Walks Like a Duck…
 
   Previously, you implemented the blink functionality for the Sad smiley without utilizing the class `Blinkable`. Assuming you did not use `Blinkable` (even if you actually did), consider how the Sad smiley could blink similarly to the Happy smiley without this specific class.
 
-  1. **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
+  **1.** **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
 
-     > Your answer here
+      Blinkable is a abstract base class Because it inherits from abc and creates contract 
 
-  2. **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
-  > Your answer here
+  **2.** **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
-  3. **OO Principle Identification:** Regarding your answer to question (2), which Object-Oriented (OO) principle does this represent? Choose from the following and justify your answer in 1-2 sentences: Abstraction, Polymorphism, Inheritance, Encapsulation.
+      Abstraction: an interface or abstract base class states what operations must exist while intentionally hiding how they are carried out, letting each concrete class supply its own implementation.
 
-  > Your answer here
+  **3.** **OO Principle Identification:** Regarding your answer to question (2), which Object-Oriented (OO) principle does this represent? Choose from the following and justify your answer in 1-2 sentences: Abstraction, Polymorphism, Inheritance, Encapsulation.
 
-  4. **Implementation Flexibility:** Explain why you could grant the Sad Smiley a blinking feature similar to the Happy Smiley's implementation, even without directly using `Blinkable`.
+      abstraction:
+      an interface focuses on what operations are available while deliberately hiding how they work exposing only the contract and protecting client from the implementation details
 
-  > Your answer here
+  **4.** **Implementation Flexibility:** Explain why you could grant the Sad Smiley a blinking feature similar to the Happy Smiley's implementation, even without directly using `Blinkable`.
 
-  5. **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
+      Inheritance lets both subclasses Sad and Happy extend the abstract Blinkable base class and provide their own implementation of `blink()` this is considered polymorphism because the clients code can hold a Blinkable reference and call `blink()` without knowing which specific subclass instance it is.
 
-  > Your answer here
+  **5.** **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
+
+      python (duck typing): if an object has the right methods/attributes you can use it.
+      C# (staticaly typed): you usually must declare an interface and have the class implemented so the compiler knows the object will work.
 
   ***
 
-  ## Refactoring
+## Refactoring
 
-  ### Does a Smiley Have to Be Yellow?
+## Does a Smiley Have to Be Yellow?
 
   While our current implementation predominantly features yellow smileys, emotional expressions like sickness or anger typically utilize colors like green, red, or orange. We'll explore the feasibility of integrating these colors into our smileys.
 
-  1. **Defined Colors and Their Location:**
+**1.** **Defined Colors and Their Location:**
 
-     1. Which colors are defined and in which class(s)?
-        > Your answer here
-     2. What type of variables hold these colors? Are the values expected to change during the program's execution? Explain your answer.
-        > Your answer here
-     3. Add the color blue to the appropriate class using the appropriate format and values.
+   **1.** Which colors are defined and in which class(s)?
+            
+            the smiley class deffines and contains a deffinition of 5 colours WHITE,GREEN,RED,YELLOW,BLANK
 
-  2. **Usage of Color Variables:**
+   **2.** What type of variables hold these colors? Are the values expected to change during the program's execution? Explain your answer.
+            
+            they are held in a tuple and can be changed when the smiley base class is used in other subclasses
 
-     1. In which classes are the color variables used?
-        > Your answer here
+   **3.** Add the color blue to the appropriate class using the appropriate format and values.
 
-  3. **Simple Method to Change Colors:**
-  4. What is the easiest way you can think to change the smileys to green? Easiest, not necessarily the best!
-     > Your answer here
+  **2.** **Usage of Color Variables:**
+    **1.** In which classes are the color variables used?
+      
+           Sad,smiley,happy
 
-  Here's a revised version of the "Flexible Colors – Step 1" section for the smiley project, incorporating your specifications for formatting and content updates:
+  **3.** **Simple Method to Change Colors:**
+
+
+  **4.** What is the easiest way you can think to change the smileys to green? Easiest, not necessarily the best!
+     
+            change directly the YELLOW variable to (0, 255, 0) instead of (255, 255, 0) this is the easiest way though far from the best way as it introduces alot of confusion
 
   ### Flexible Colors – Step 1
 
   Changing the color of the smileys once is straightforward, but it isn't very flexible. To facilitate various colors for smileys, it is advisable not to hardcode values in any class. This approach was identified earlier as a necessary change. Let's start by removing the built-in assumptions about color in our classes.
 
-  1. **Add a method called `complexion` to the `Smiley` class:** Implement this instance method to return `self.YELLOW`. Using the term "complexion" instead of "color" provides a more abstract terminology that focuses on the meaning rather than implementation.
+  **1.** **Add a method called `complexion` to the `Smiley` class:** Implement this instance method to return `self.YELLOW`. Using the term "complexion" instead of "color" provides a more abstract terminology that focuses on the meaning rather than implementation.
 
-  2. **Refactor subclasses to use the `complexion` method:** Modify any subclass that directly accesses the color variable to instead utilize the new `complexion` method. This ensures that color handling is centralized and can be easily modified in the future.
+  **2.** **Refactor subclasses to use the `complexion` method:** Modify any subclass that directly accesses the color variable to instead utilize the new `complexion` method. This ensures that color handling is centralized and can be easily modified in the future.
 
-  3. **Determine the applicable Object-Oriented principle:** Consider whether Abstraction, Polymorphism, Inheritance, or Encapsulation best applies to the modifications made in this step.
+  **3.** **Determine the applicable Object-Oriented principle:** Consider whether Abstraction, Polymorphism, Inheritance, or Encapsulation best applies to the modifications made in this step.
 
-  4. **Verify the implementation:** Ensure that the modifications function as expected. The smileys should still display in yellow, confirming that the new method correctly replaces the direct color references.
+  **4.** **Verify the implementation:** Ensure that the modifications function as expected. The smileys should still display in yellow, confirming that the new method correctly replaces the direct color references.
 
   This step is crucial for setting up a more flexible system for color management in the smiley display logic, allowing for easy adjustments and extensions in the future.
 
@@ -341,34 +383,34 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
   Having removed the hardcoded color values, we now enhance the base class to support dynamic color assignments more effectively.
 
-  1. **Modify the `__init__()` method in the `Smiley` class:** Introduce a default argument named `complexion` and assign `YELLOW` as its default value. This allows the instantiation of smileys with customizable colors.
+   **1.** **Modify the `__init__()` method in the `Smiley` class:** Introduce a default argument named `complexion` and assign `YELLOW` as its default value. This allows the instantiation of smileys with customizable colors.
 
-  2. **Introduce a new instance variable:** Create a variable called `my_complexion` and assign the `complexion` parameter to it. This step ensures that each smiley instance can maintain its own color state.
+   **2.** **Introduce a new instance variable:** Create a variable called `my_complexion` and assign the `complexion` parameter to it. This step ensures that each smiley instance can maintain its own color state.
 
-  3. **Rationale for `my_complexion`:** Using a distinct instance variable like `my_complexion` avoids potential conflicts with the method parameter names and clarifies that it is an attribute specific to the object.
+   **3.** **Rationale for `my_complexion`:** Using a distinct instance variable like `my_complexion` avoids potential conflicts with the method parameter names and clarifies that it is an attribute specific to the object.
 
-  4. **Bulk rename:** We want to update our grid to use the value of complexion, but we have so many `Y`'s in the grid. Use your IDE's refactoring tool to rename all instances of the **symbol** `Y` to `X`. Where `X` is the value of the `complexion` variable. Include a screenshot evidencing you have found the correct refactor tool and the changes made.
+   4. **Bulk rename:** We want to update our grid to use the value of complexion, but we have so many `Y`'s in the grid. Use your IDE's refactoring tool to rename all instances of the **symbol** `Y` to `X`. Where `X` is the value of the `complexion` variable. Include a screenshot evidencing you have found the correct refactor tool and the changes made.
 
-  ![Bulk Rename](screenshots/bulk_rename.png)
+   ![Bulk Rename](screenshots/bulk_rename.png)
 
-  5. **Update the `complexion` method:** Adjust this method to return `self.my_complexion`, ensuring that whatever color is assigned during instantiation is what the smiley displays.
+   **5.** **Update the `complexion` method:** Adjust this method to return `self.my_complexion`, ensuring that whatever color is assigned during instantiation is what the smiley displays.
 
-  6. **Verification:** Run the updated code to confirm that Smileys still defaults to yellow unless specified otherwise.
+   **6.** **Verification:** Run the updated code to confirm that Smileys still defaults to yellow unless specified otherwise.
 
   ### Flexible Colors – Step 3
 
   With the foundational changes in place, it's now possible to implement varied smiley colors for different emotional expressions.
 
-  1. **Adjust the `Sad` class initialization:** In the `Sad` class's initializer method, change the superclass call to include the `complexion` argument with the value `self.BLUE`, as shown:
+   **1.** **Adjust the `Sad` class initialization:** In the `Sad` class's initializer method, change the superclass call to include the `complexion` argument with the value `self.BLUE`, as shown:
 
-     ```python
-     super().__init__(complexion=self.BLUE)
-     ```
+        ```python
+      super().__init__(complexion=self.BLUE)
+      ```
 
-  2. **Test color functionality for the Sad smiley:** Execute the program to verify that the Sad smiley now appears blue.
+   **2.** **Test color functionality for the Sad smiley:** Execute the program to verify that the Sad smiley now appears blue.
 
-  3. **Ensure the Happy smiley remains yellow:** Confirm that changes to the Sad smiley do not affect the default color of the Happy smiley, which should still display in yellow.
+   **3.** **Ensure the Happy smiley remains yellow:** Confirm that changes to the Sad smiley do not affect the default color of the Happy smiley, which should still display in yellow.
 
-  4. **Design and Implement An Angry Smiley:** Create an Angry smiley class that inherits from the `Smiley` class. Set the color of the Angry smiley to red by passing `self.RED` as the `complexion` argument in the superclass call.
+   **4.** **Design and Implement An Angry Smiley:** Create an Angry smiley class that inherits from the `Smiley` class. Set the color of the Angry smiley to red by passing `self.RED` as the `complexion` argument in the superclass call.
 
   ***

@@ -20,7 +20,6 @@ class Happy(Smiley, Blinkable):
         mouth = [41, 46, 50, 51, 52, 53]
         for pixel in mouth:
             self.pixels[pixel] = self.BLANK
-
     def draw_eyes(self, wide_open=True):
         """
        Draws the eyes (open or closed) on the standard smiley.
