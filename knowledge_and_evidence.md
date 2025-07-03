@@ -331,7 +331,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   **5.** **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
 
       python (duck typing): if an object has the right methods/attributes you can use it.
-      C# (staticaly typed): you usually must declare an interface and have the class implemented so the compiler knows the object will work.
+      C# (staticaly typed): you usually must declare an interface and have the class implemented so the compiler knows the object will work before run time.
 
   ***
 
