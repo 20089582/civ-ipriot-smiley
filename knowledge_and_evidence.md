@@ -93,7 +93,7 @@ Address the following tasks and questions based on the code provided in this rep
 3. Run the project locally by executing the `main.py` file
 4. Evidence this by providing screenshots of the project directory structure and the output of the `main.py` file
 
-![Local Execution (INSERT YOUR SCREENSHOT)](screenshots/CREATE_A_SCREENSHOT_OF_YOUR_local_setup.png)
+![Local Execution (INSERT YOUR SCREENSHOT)](screenshots/local_setup.png)
 
 If you are running on a Raspberry Pi, you can use the following command to run the project and then screenshot the result:
 
@@ -174,7 +174,18 @@ python3 main.py
 **3.** Give two examples of organizational documentation in the code.
       
       1. docstrings are used to explain the purpose and parameters of functions such as "draw_eyes()" and "draw_eyes()"
-      2. file-level comments are used in the main.py and SenseHat.py
+      an example from one of them
+            """
+                  Draws the eyes (open or closed) on the standard smiley.
+                  :param wide_open (bool): eyes open or closed.
+            """
+      2. file-level comments are used in the main.py and SenseHat.py they exist to explain the purpose of the file and apear at the very top of the file
+      an example from main.py
+      """
+      Demonstrates the use of the Smiley class and its subclasses.
+      If you have access to a SenseHAT (either via a Raspberry Pi or a SenseHAT emulator), you can use the real SenseHAT class instead of the mock SenseHAT class.
+      That is, delete the sense_hat.py file that is included in this bundle.
+      """
 
 
 ### Identifying and understanding classes
@@ -219,7 +230,7 @@ Compare and contrast the classes Happy and Sad.
 
 **4.** How does this difference affect the functionality of these classes
       
-      by importing time in the happy class it is able to create the blink function and it specificaly allows the blink function to use `time.delay()` witch delays between functions being executed
+      Importing the `time` module in the `Happy` class enables the blink functionality because it provides access to `time.sleep()` which pauses execution for a specified duration. This allows for the `blink` method to pause between closing and reopening the eyes, creating a visible blink effect. The `Sad` class lacks this import so it cannot implement a similar blink without adding the `time` import and using `time.sleep()`.
       
    
 
@@ -235,8 +246,7 @@ Compare and contrast the classes Happy and Sad.
     
 **3.** Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
 
-      Encapsulation refers to protecting the internal state from the application. a good example of this would be 
-      In the smiley project, the smiley class acts as the super class that directly interacts with the internal sense hat state while classes witch inherit from the smiley class are able to use certain functions such as `smiley.dim_display()`, `smiley.show()` this allows them to display things to the screen or dim it without directly interacting with the sense hat this protects it from commands or misuses witch may damage the sense hat
+      Encapsulation refers to protecting the internal state from external code. In the smiley project the Smiley class acts as the superclass that directly interacts with the internal SenseHat state. Subclasses that inherit from Smiley use its public methods such as `smiley.dim_display()` and `smiley.show()`. By calling these methods, subclasses can control the display or dim it without accessing the SenseHat hardware directly. This hides the low level details and prevents accidental misuse that could damage the SenseHat and makes it easier to modify the underlying implementation later.
 
 ### Sad Smileys Can’t Blink (Or Can They?)
 
@@ -264,16 +274,6 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
       Blinkable is an abstract base class that declares `blink()`.
       Each subclass such as sad and happy must implement that method so the client code can call `blink()` on any Blinkable object without caring which subclass it is this interchangeable behavior is polymorphism.
       
-
-
-
-
-
-
-
-
-
-
 **1.** **Implement Blink in Sad Class:**
 
    - Create a new method called `blink` within the Sad class. Ensure you use the same method signature as in the Happy class:
@@ -306,27 +306,25 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
       i had to change the main.py from importing happy from happy to importing sad from sad and started using the sad() function i took the blink command from the happy class and put it into the sad class this nessesitated importing Time into the sad class to allow the time.delay function to work 
 
-  ### If It Walks Like a Duck…
+### If It Walks Like a Duck…
 
   Previously, you implemented the blink functionality for the Sad smiley without utilizing the class `Blinkable`. Assuming you did not use `Blinkable` (even if you actually did), consider how the Sad smiley could blink similarly to the Happy smiley without this specific class.
 
   **1.** **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
-
-      Blinkable is a abstract base class Because it inherits from abc and creates contract 
+      Blinkable is an abstract base class (ABC). It inherits from `abc.ABC` and defines an interface or contract that subclasses must implement specifically the `blink()` method.
 
 
   **2.** **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
-      Abstraction: an interface or abstract base class states what operations must exist while intentionally hiding how they are carried out, letting each concrete class supply its own implementation.
+      Abstract Base Class (ABC) or Interface: This type of class defines a contract or a blueprint of methods that concrete subclasses must implement, without providing a full implementation itself in the abstract class.
 
   **3.** **OO Principle Identification:** Regarding your answer to question (2), which Object-Oriented (OO) principle does this represent? Choose from the following and justify your answer in 1-2 sentences: Abstraction, Polymorphism, Inheritance, Encapsulation.
 
-      abstraction:
-      an interface focuses on what operations are available while deliberately hiding how they work exposing only the contract and protecting client from the implementation details
+      Abstraction: An interface focuses on what operations are available while deliberately hiding how they work. This exposes only the necessary contract to the user while keeping the complex implementation details hidden.
 
   **4.** **Implementation Flexibility:** Explain why you could grant the Sad Smiley a blinking feature similar to the Happy Smiley's implementation, even without directly using `Blinkable`.
 
-      Inheritance lets both subclasses Sad and Happy extend the abstract Blinkable base class and provide their own implementation of `blink()` this is considered polymorphism because the clients code can hold a Blinkable reference and call `blink()` without knowing which specific subclass instance it is.
+      Python uses "duck typing" which means that the suitability of an object is determined by the presence of certain methods and properties, rather than the actual type of the object. As long as the `Sad` class implements a `blink()` method Python allows it to be used wherever a blinkable object is expected even if it does not explicitly inherit from the `Blinkable` class.
 
   **5.** **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
 
@@ -359,14 +357,12 @@ Include a screenshot of the sad smiley or the modified `main.py`:
            Sad,smiley,happy
 
   **3.** **Simple Method to Change Colors:**
-
-
   **4.** What is the easiest way you can think to change the smileys to green? Easiest, not necessarily the best!
-     
-            change directly the YELLOW variable to (0, 255, 0) instead of (255, 255, 0) this is the easiest way though far from the best way as it introduces alot of confusion
 
-  ### Flexible Colors – Step 1
+            change directly the YELLOW variable to (0, 255, 0) instead of (255, 255, 0) although although another way it could be done by using duck typing creating somthing like colour class that would then use be accessed via inheritence
 
+
+ ### Flexible Colors – Step 1
   Changing the color of the smileys once is straightforward, but it isn't very flexible. To facilitate various colors for smileys, it is advisable not to hardcode values in any class. This approach was identified earlier as a necessary change. Let's start by removing the built-in assumptions about color in our classes.
 
   **1.** **Add a method called `complexion` to the `Smiley` class:** Implement this instance method to return `self.YELLOW`. Using the term "complexion" instead of "color" provides a more abstract terminology that focuses on the meaning rather than implementation.
