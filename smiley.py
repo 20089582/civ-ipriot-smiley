@@ -9,27 +9,27 @@ class Smiley:
     BLANK = (0, 0, 0)
     BLUE = (0, 0, 255)
 
-    def __init__(self):
-        # We have encapsulated the SenseHat object
+    def __init__(self, complexion=YELLOW):
         self.sense_hat = SenseHat()
-        Y = self.YELLOW
+        self.my_complexion = complexion
+        X = self.my_complexion
         O = self.BLANK
         self.pixels = [
-            O, Y, Y, Y, Y, Y, Y, O,
-            Y, Y, Y, Y, Y, Y, Y, Y,
-            Y, Y, Y, Y, Y, Y, Y, Y,
-            Y, Y, Y, Y, Y, Y, Y, Y,
-            Y, Y, Y, Y, Y, Y, Y, Y,
-            Y, Y, Y, Y, Y, Y, Y, Y,
-            Y, Y, Y, Y, Y, Y, Y, Y,
-            O, Y, Y, Y, Y, Y, Y, O,
+            O, X, X, X, X, X, X, O,
+            X, X, X, X, X, X, X, X,
+            X, X, X, X, X, X, X, X,
+            X, X, X, X, X, X, X, X,
+            X, X, X, X, X, X, X, X,
+            X, X, X, X, X, X, X, X,
+            X, X, X, X, X, X, X, X,
+            O, X, X, X, X, X, X, O,
         ]
 
     def complexion(self):
         """
         Returns the color of the smiley.
         """
-        return self.YELLOW
+        return self.my_complexion
 
     def dim_display(self, dimmed=True):
         """
