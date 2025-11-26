@@ -343,7 +343,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
    **1.** Which colors are defined and in which class(s)?
             
-            the smiley class deffines and contains a deffinition of 5 colours WHITE,GREEN,RED,YELLOW,BLANK
+            the smiley class deffines and contains a deffinition of 6 colours WHITE,GREEN,RED,YELLOW,BLANK,BLUE
 
    **2.** What type of variables hold these colors? Are the values expected to change during the program's execution? Explain your answer.
             
