@@ -43,7 +43,6 @@ cd civ-ipriot-smiley
 6. Create a new branch:
 
 ```bash
-
 git switch -c por2
 ```
 

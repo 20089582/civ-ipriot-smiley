@@ -10,11 +10,18 @@ from angry import Angry
 
 def main():
     smiley = Angry()
-
     smiley.show()
-
     time.sleep(1)
-
+    smiley.blink()
+    
+    smiley = Happy()
+    smiley.show()
+    time.sleep(1)
+    smiley.blink()
+    
+    smiley = Sad()
+    smiley.show()
+    time.sleep(1)
     smiley.blink()
 
 if __name__ == '__main__':
@@ -24,4 +31,3 @@ if __name__ == '__main__':
     # freeze_support()
     ############################################################
     main()
-
