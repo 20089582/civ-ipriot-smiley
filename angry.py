@@ -12,7 +12,7 @@ class Angry(Smiley):
         """
         Draws an angry frown mouth on the smiley
         """
-        mouth = [42, 43, 44, 45]
+        mouth = [ 42, 43, 44, 45]
         for pixel in mouth:
             self.pixels[pixel] = self.BLANK
 
